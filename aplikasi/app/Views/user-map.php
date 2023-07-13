@@ -98,7 +98,7 @@
     </nav>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
       <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">WEBGIS</h5>
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">WEB SIG CIKEUSIK</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div class="offcanvas-body p-0">
@@ -141,19 +141,64 @@
           <div class="accordion-item">
             <h2 class="accordion-header" id="headingFour">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-            List Lokasi
+            Data Sekolah
             </button>
           </h2>
           <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
               <div class="accordion-body p-2">
-                <?php if($sekolah == null) : ?>
-                  <p class="text-center text-muted">Tidak Ada Data</p>
-                <?php endif; ?>
-                <?php foreach($sekolah as $sek) : ?>
-                  <div class="list-data p-2 mb-2" data-bs-dismiss="offcanvas" aria-label="Close" onclick="zoomTo(<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>)">
-                    <i class="fas fa-map-marker-alt" style="font-size: 16px"></i>&nbsp;<?= $sek['nama_sekolah'] ?>
+                
+                <div class="accordion accordion-flush" id="accordionDesa">
+                  <?php foreach($desa as $d) : ?>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse<?= $d['id_desa'] ?>" aria-expanded="false" aria-controls="flush-collapse<?= $d['id_desa'] ?>">
+                        <?= $d['nama_desa'] ?>
+                      </button>
+                    </h2>
+                    <div id="flush-collapse<?= $d['id_desa'] ?>" class="accordion-collapse collapse" data-bs-parent="#accordionDesa">
+                      <div class="accordion-body">
+                      <?php if($sekolah == null) : ?>
+                        <p class="text-center text-muted">Tidak Ada Data</p>
+                      <?php endif; ?>
+                      <?php foreach($sekolah as $sek) : ?>
+                        <?php if($sek['id_desa'] == $d['id_desa']) : ?>
+                        <div class="list-data p-2 mb-2" data-bs-dismiss="offcanvas" aria-label="Close" onclick="zoomTo(<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>)">
+                          <i class="fas fa-map-marker-alt" style="font-size: 16px"></i>&nbsp;<?= $sek['nama_sekolah'] ?>
+                        </div>
+                        <?php endif; ?>
+                      <?php endforeach; ?>
+                      </div>
+                    </div>
                   </div>
-                <?php endforeach; ?>
+                  <?php endforeach; ?>
+                </div>
+
+                <div class="accordion accordion-flush" id="accordionJenjang">
+                  <?php foreach($jenjang as $j) : ?>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseJ<?= $j['id_jenjang'] ?>" aria-expanded="false" aria-controls="flush-collapseJ<?= $j['id_jenjang'] ?>">
+                        <?= $j['jenjang'] ?>
+                      </button>
+                    </h2>
+                    <div id="flush-collapseJ<?= $j['id_jenjang'] ?>" class="accordion-collapse collapse" data-bs-parent="#accordionJenjang">
+                      <div class="accordion-body">
+                      <?php if($sekolah == null) : ?>
+                        <p class="text-center text-muted">Tidak Ada Data</p>
+                      <?php endif; ?>
+                      <?php foreach($sekolah as $sek) : ?>
+                        <?php if($sek['id_jenjang'] == $j['id_jenjang']) : ?>
+                        <div class="list-data p-2 mb-2" data-bs-dismiss="offcanvas" aria-label="Close" onclick="zoomTo(<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>)">
+                          <i class="fas fa-map-marker-alt" style="font-size: 16px"></i>&nbsp;<?= $sek['nama_sekolah'] ?>
+                        </div>
+                        <?php endif; ?>
+                      <?php endforeach; ?>
+                      </div>
+                    </div>
+                  </div>
+                  <?php endforeach; ?>
+                </div>
+                
               </div>
           </div>
         </div>
@@ -180,11 +225,11 @@
     +'<table class="table table-bordered">'
         +'<tr>'
             +'<td>Akreditasi</td>'
-            +'<td><?= $sek['akreditasi'] ?></td>'
+            +'<td><?= $sek['email'] ?></td>'
         +'</tr>'
         +'<tr>'
             +'<td>Email</td>'
-            +'<td><?= $sek['email'] ?></td>'
+            +'<td><?= $sek['alamat'] ?></td>'
         +'</tr>'
         +'<tr>'
             +'<td>Website</td>'
@@ -192,9 +237,13 @@
         +'</tr>'
         +'<tr>'
             +'<td>Alamat</td>'
-            +'<td><?= $sek['alamat'] ?></td>'
+            +'<td><?= $sek['akreditasi'] ?></td>'
         +'</tr>'
     +'</table>'
+    +'<p class="fw-bold mb-0">Average 1</p>'
+    +'<p><?= $sek['average1'] ?>'
+    +'<p class="fw-bold mb-0">Average 2</p>'
+    +'<p><?= $sek['average2'] ?>'
       +'<button type="button" class="btn btn-primary p-1 btn-sm w-100" onclick="return kesini(<?= $sek['koord_x'] ?>,<?= $sek['koord_y'] ?>)"><i class="fas fa-reply"></i> Ke sini</button>');
     <?php endforeach; ?>
     function localData(text, callResponse)

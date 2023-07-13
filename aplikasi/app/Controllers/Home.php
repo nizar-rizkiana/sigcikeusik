@@ -21,7 +21,9 @@ class Home extends BaseController
 	public function index()
 	{
 		$data = [
-			'sekolah' => $this->sekolahModel->findAll()
+			'sekolah' => $this->sekolahModel->findAll(),
+			'desa' => $this->desaModel->findAll(),
+			'jenjang' => $this->jenjangModel->findAll()
 		];
 		return view('user-map', $data);
 	}

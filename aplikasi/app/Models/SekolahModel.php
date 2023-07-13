@@ -9,7 +9,7 @@ class SekolahModel extends Model
 	protected $table = 'tb_sekolah';
 	protected $primaryKey = 'id_sekolah';
 	protected $useTimestamps = false;
-	protected $allowedFields = ['id_jenjang', 'id_desa', 'nama_sekolah', 'alamat', 'email', 'website', 'akreditasi', 'koord_x', 'koord_y'];
+	protected $allowedFields = ['id_jenjang', 'id_desa', 'nama_sekolah', 'alamat', 'email', 'website', 'akreditasi', 'koord_x', 'koord_y', 'average1', 'average2'];
 
 	public function getSekolah()
 	{

@@ -51,6 +51,14 @@ class Sekolah extends Migration
 				'type'				=> 'varchar',
 				'constraint'		=> 100,
 			],
+			'average1' => [
+				'type'				=> 'varchar',
+				'constraint'		=> 100,
+			],
+			'average2' => [
+				'type'				=> 'varchar',
+				'constraint'		=> 100
+			]
 		]);
 
 		$this->forge->addKey('id_sekolah', true);

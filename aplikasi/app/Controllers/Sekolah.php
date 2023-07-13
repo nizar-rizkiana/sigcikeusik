@@ -34,6 +34,7 @@ class Sekolah extends BaseController
             'title' => 'Data sekolah',
             'jenjang' => $this->jenjangModel->findAll(),
             'desa' => $this->desaModel->findAll(),
+            'sekolah' => $this->sekolahModel->findAll(),
             'validation' => \Config\Services::validation()
         ];
         return view('input-sekolah', $data);
@@ -44,6 +45,7 @@ class Sekolah extends BaseController
         $data = [
             'title' => 'Data sekolah',
             'sekolah' => $this->sekolahModel->find($id),
+            'dataSekolah' => $this->sekolahModel->findAll(),
             'jenjang' => $this->jenjangModel->findAll(),
             'desa' => $this->desaModel->findAll(),
             'validation' => \Config\Services::validation()
@@ -77,6 +79,8 @@ class Sekolah extends BaseController
             'alamat' => $this->request->getVar('alamat'),
             'koord_x' => $this->request->getVar('koord_x'),
             'koord_y' => $this->request->getVar('koord_y'),
+            'average1' => $this->request->getVar('average1'),
+            'average2' => $this->request->getVar('average2'),
         ]);
         session()->setFlashdata('sukses', 'Data Sekolah berhasil di tambah');
         return redirect()->to('/sekolah');
@@ -114,6 +118,8 @@ class Sekolah extends BaseController
             'alamat' => $this->request->getVar('alamat'),
             'koord_x' => $this->request->getVar('koord_x'),
             'koord_y' => $this->request->getVar('koord_y'),
+            'average1' => $this->request->getVar('average1'),
+            'average2' => $this->request->getVar('average2'),
         ]);
         session()->setFlashdata('sukses', 'Data Sekolah berhasil di update');
         return redirect()->to('/sekolah');

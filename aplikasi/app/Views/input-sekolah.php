@@ -75,6 +75,20 @@
                                 <label for="koord_y" class="form-label">Koord y</label>
                                 <input type="text" name="koord_y" class="form-control mb-2" id="koord_y"
                                     placeholder="" value="<?= old('koord_y') ?>" required>
+                                <label for="average1" class="form-label">Average 1</label>
+                                <select name="average1" id="average1" class="form-select mb-2" required>
+                                    <option value="" disabled selected>-- Pilih Sekolah --</option>
+                                    <?php foreach($sekolah as $s) : ?>
+                                        <option value="<?= $s['nama_sekolah'] ?> [<?= $s['akreditasi'] ?>]"><?= $s['nama_sekolah'] ?> [<?= $s['akreditasi'] ?>]</option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <label for="average2" class="form-label">Average 2</label>
+                                <select name="average2" id="average2" class="form-select mb-2" required>
+                                    <option value="" disabled selected>-- Pilih Sekolah --</option>
+                                    <?php foreach($sekolah as $s) : ?>
+                                        <option value="<?= $s['nama_sekolah'] ?> [<?= $s['akreditasi'] ?>]"><?= $s['nama_sekolah'] ?> [<?= $s['akreditasi'] ?>]</option>
+                                    <?php endforeach; ?>
+                                </select>
                                 <br>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <button type="reset" class="btn btn-primary">Reset</button>

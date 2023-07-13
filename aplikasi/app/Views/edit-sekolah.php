@@ -75,6 +75,22 @@
                                 <input type="text" name="koord_y" class="form-control mb-2" id="koord_y"
                                     placeholder="" value="<?= old('koord_y', $sekolah['koord_y']) ?>" required>
                                 <br>
+                                <label for="average1" class="form-label">Average 1</label>
+                                <select name="average1" id="average1" class="form-select mb-2" required>
+                                    <option value="<?= $sekolah['average1'] ?>" selected><?= $sekolah['average1'] ?></option>
+                                    <?php foreach($dataSekolah as $s) : ?>
+                                        <option value="<?= $s['nama_sekolah'] ?> [<?= $s['akreditasi'] ?>]"><?= $s['nama_sekolah'] ?> [<?= $s['akreditasi'] ?>]</option>
+                                    <?php endforeach; ?>
+                                </select>
+                                
+                                <label for="average2" class="form-label">Average 2</label>
+                                <select name="average2" id="average2" class="form-select mb-2" required>
+                                    <option value="<?= $sekolah['average2'] ?>" selected><?= $sekolah['average2'] ?></option>
+                                    <?php foreach($dataSekolah as $s) : ?>
+                                        <option value="<?= $s['nama_sekolah'] ?> [<?= $s['akreditasi'] ?>]"><?= $s['nama_sekolah'] ?> [<?= $s['akreditasi'] ?>]</option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <br>
                                 <button type="submit" class="btn btn-primary">Simpan</button>
                                 <button type="reset" class="btn btn-primary">Reset</button>
                                 <a href="<?= base_url() ?>/sekolah" class="btn btn-danger">Kembali</a>
