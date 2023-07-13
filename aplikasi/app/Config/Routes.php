@@ -45,6 +45,7 @@ $routes->group('/', ['filter' => 'adminFilter'], function($routes) {
 	$routes->get('jenjang', 'Jenjang::index');
     $routes->get('tambah-admin', 'Auth::tambahAdmin');
 	$routes->get('edit-lokasi/(:num)', 'Lokasi::edit/$1');
+	$routes->get('cetak', 'Dashboard::cetak');
 });
 
 /*
