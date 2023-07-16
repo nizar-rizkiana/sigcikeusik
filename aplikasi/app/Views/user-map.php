@@ -69,6 +69,10 @@
       cursor: pointer;
       background-color: rgba(0, 0, 0, 0.05);
     }
+    .leaflet-routing-container.leaflet-bar.leaflet-control
+    {
+      display: none;
+    }
     @media screen and (max-width: 576px){
     #map-user{
     height: 95vh;
@@ -240,10 +244,10 @@
             +'<td><?= $sek['akreditasi'] ?></td>'
         +'</tr>'
     +'</table>'
-    +'<p class="fw-bold mb-0">Average 1</p>'
-    +'<p><?= $sek['average1'] ?>'
-    +'<p class="fw-bold mb-0">Average 2</p>'
-    +'<p><?= $sek['average2'] ?>'
+    +'<p class="fw-bold my-0">Average 1</p>'
+    +'<p class="my-0"><?= $sek['average1'] ?></p>'
+    +'<p class="fw-bold my-0">Average 2</p>'
+    +'<p class="my-0"><?= $sek['average2'] ?></p>'
       +'<button type="button" class="btn btn-primary p-1 btn-sm w-100" onclick="return kesini(<?= $sek['koord_x'] ?>,<?= $sek['koord_y'] ?>)"><i class="fas fa-reply"></i> Ke sini</button>');
     <?php endforeach; ?>
     function localData(text, callResponse)
@@ -262,7 +266,7 @@
     }
     }
     
-    map.addControl( new L.Control.Search({sourceData: localData, textPlaceholder: 'Cari nama lokasi...', position: 'topright', zoom: 15}) );
+    map.addControl( new L.Control.Search({sourceData: localData, textPlaceholder: 'Cari nama sekolah...', position: 'topright', zoom: 15}) );
     // L.control.side({position: 'topright'}).addTo(map);
     
     // L.control.logo({position: 'topleft'}).addTo(map);
