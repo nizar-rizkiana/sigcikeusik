@@ -148,54 +148,28 @@ function kesini(lat,lng)
         var latlng = L.latLng(lat, lng);
         control.spliceWaypoints(control.getWaypoints().length - 1, 1, latlng);
         marker = L.marker([lat, lng], {icon: mylocation}).bindPopup('Lokasi Anda Saat ini')
-        
-
-        let routeUs = L.Routing.osrmv1();
-        routeUs.route([wp1,wp2],(err,routes)=>{
-            if(!err)
-            {
-                let best = 100000000000000;
-                let bestRoute = 0;
-                for(i in routes)
-                {
-                    if(routes[i].summary.totalDistance < best ){
-                        bestRoute = i;
-                        best = routes[i].summary.totalDistance;
-                    }
-                }
-                console.log('best route', routes[bestRoute]);
-                L.Routing.line(routes[bestRoute], {
-                    styles : [
-                        {
-                            color : 'green',
-                            weight : '5'
-                        }
-                    ]
-                }).addTo(map);
-            }
-        })
     }, 3000);
 
 }
 
-// contorl routing jalur evakuasi
-// var control = L.Routing.control({
-//     waypoints: [
-//         L.latLng(-6.3950726, 105.8511118),
-//         L.latLng(-6.3950726, 105.8511118),
-//     ],
-//     router: L.Routing.mapbox('pk.eyJ1Ijoibml6YXItcml6a2lhbmEiLCJhIjoiY2wxZnVtcHlyMHd6cTNvbG43OTFyaG5jayJ9.IkFoyKWm81q0rTYe53warA'),
-//     routeWhileDragging: true,
-//     reverseWaypoints: true,
-//     showAlternatives: true,
-//     altLineOptions: {
-//         styles: [
-//             {color: 'black', opacity: 0.15, weight: 9},
-//             {color: 'white', opacity: 0.8, weight: 6},
-//             {color: 'blue', opacity: 0.5, weight: 2}
-//         ]
-//     }
-// });
+//contorl routing jalur evakuasi
+var control = L.Routing.control({
+    waypoints: [
+        L.latLng(null, null),
+        L.latLng(null, null),
+    ],
+    router: L.Routing.mapbox('pk.eyJ1Ijoibml6YXItcml6a2lhbmEiLCJhIjoiY2wxZnVtcHlyMHd6cTNvbG43OTFyaG5jayJ9.IkFoyKWm81q0rTYe53warA'),
+    routeWhileDragging: true,
+    reverseWaypoints: true,
+    showAlternatives: true,
+    altLineOptions: {
+        styles: [
+            {color: 'black', opacity: 0.15, weight: 9},
+            {color: 'white', opacity: 0.8, weight: 6},
+            {color: 'blue', opacity: 0.5, weight: 2}
+        ]
+    }
+});
 
 
 
