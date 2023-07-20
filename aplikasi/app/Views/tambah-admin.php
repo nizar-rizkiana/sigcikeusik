@@ -20,6 +20,11 @@
                         <div class="invalid-feedback">
                             <?= $validation->getError('level'); ?>
                         </div>
+                        <label for="nama_admin" class="form-label">Nama Admin</label>
+                        <input type="text" name="nama_admin" class="form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : '' ?>" id="nama_admin" placeholder="Masukkan Nama Admin" value="<?= old('nama_admin') ?>" required>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('nama_admin'); ?>
+                        </div>
                         <label for="username" class="form-label">Username</label>
                         <input type="text" name="username" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : '' ?>" id="username" placeholder="Masukkan username" value="<?= old('username') ?>" required>
                         <div class="invalid-feedback">
@@ -58,6 +63,11 @@
                     </select>
                     <div class="invalid-feedback">
                         <?= $validation->getError('level'); ?>
+                    </div>
+                    <label for="nama_admin" class="form-label">Nama Admin</label>
+                    <input type="text" name="nama_admin" class="form-control <?= ($validation->hasError('nama_admin')) ? 'is-invalid' : '' ?>" id="nama_admin" placeholder="Masukkan Nama Admin" value="<?= old('nama_admin', $adm['nama_admin']) ?>" required>
+                    <div class="invalid-feedback">
+                        <?= $validation->getError('nama_admin'); ?>
                     </div>
                     <label for="username" class="form-label">Username</label>
                     <input type="text" name="username" class="form-control <?= ($validation->hasError('username')) ? 'is-invalid' : '' ?>" id="username" placeholder="Masukkan username .." value="<?= (old('username')) ? old('username') : $adm['username']; ?>" required>
@@ -110,6 +120,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Nama</th>
                                     <th>Level</th>
                                     <th>Username</th>
                                     <th>Aksi</th>
@@ -120,6 +131,7 @@
                                 <?php foreach($admin as $adm) : ?>
                                 <tr>
                                     <td><?= $no++ ?></td>
+                                    <th><?= $adm['nama_admin'] ?></th>
                                     <td><?= ($adm['level'] == 1 ) ? 'Admin' : 'Kepala Dinas' ?></td>
                                     <td><?= $adm['username'] ?></td>
                                     <td>

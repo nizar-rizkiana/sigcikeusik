@@ -16,6 +16,10 @@ class Admin extends Migration
                 'unsigned'          => true,
                 'auto_increment'    => true,
             ],
+            'nama_admin' => [
+                'type'              => 'varchar',
+                'constraint'        => 25,
+            ],
             'username' => [
                 'type'              => 'VARCHAR',
                 'constraint'        => 100,

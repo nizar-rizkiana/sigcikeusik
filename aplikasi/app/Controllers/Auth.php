@@ -28,7 +28,7 @@ class Auth extends BaseController
             if(password_verify($password, $dataUser['password'])) {
                 session()->set([
                     'id' => $dataUser['id_admin'],
-                    'username' => $dataUser['username'],
+                    'username' => $dataUser['nama_admin'],
                     'level' => $dataUser['level'],
                     'logged_in' => true
                 ]);
@@ -79,6 +79,7 @@ class Auth extends BaseController
         }
 
         $this->adminModel->save([
+            'nama_admin' => $this->request->getVar('nama_admin'),
             'username' => $this->request->getVar('username'),
             'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
             'level' => $this->request->getVar('level'),
@@ -97,6 +98,7 @@ class Auth extends BaseController
         }
         $this->adminModel->update($id, [
             'level' => $this->request->getVar('level'),
+            'nama_admin' => $this->request->getVar('nama_admin'),
             'username' => $this->request->getVar('username'),
             'password' => $password,
         ]);

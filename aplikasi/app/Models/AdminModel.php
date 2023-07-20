@@ -9,6 +9,6 @@ class AdminModel extends Model
 	protected $table = 'tb_admin';
 	protected $primaryKey = 'id_admin';
 	protected $useTimestamps = false;
-	protected $allowedFields = ['username', 'password', 'level'];
+	protected $allowedFields = ['nama_admin', 'username', 'password', 'level'];
 
 }
