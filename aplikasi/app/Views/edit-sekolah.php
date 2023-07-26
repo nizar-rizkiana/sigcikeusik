@@ -61,7 +61,7 @@
                                 <label for="desa" class="form-label">Nama Desa</label>
                                 <select name="desa" id="desa" class="form-select mb-2" required>
                                     <?php foreach($desa as $d) : ?>
-                                        <option value="<?= $d['id_desa'] ?>" <?= ($d['id_desa'] == $sekolah['id_sekolah']) ? 'selected' : '' ?>><?= $d['nama_desa'] ?></option>
+                                        <option value="<?= $d['id_desa'] ?>" <?= ($d['id_desa'] == $sekolah['id_desa']) ? 'selected' : '' ?>><?= $d['nama_desa'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                                 <label for="alamat">Alamat</label>
