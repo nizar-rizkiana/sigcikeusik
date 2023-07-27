@@ -217,12 +217,12 @@
     <script src="<?= base_url() ?>/assets/js/user-script-map.js"></script>
     <script>
       var sd = L.icon({
-        iconUrl: '<?= base_url() ?>/assets/marker/marker-red.png',
-        iconSize: [45, 45]
+        iconUrl: '<?= base_url() ?>/leaflet/images/marker-red.png',
+        iconSize: [30, 50]
       });
       var sltp = L.icon({
-        iconUrl: '<?= base_url() ?>/assets/marker/marker-green.png',
-        iconSize: [45, 45]
+        iconUrl: '<?= base_url() ?>/leaflet/images/marker-green.png',
+        iconSize: [30, 50]
       });
     var mylocation = L.icon({
       iconUrl: '<?= base_url() ?>/assets/marker/user.png',
@@ -233,14 +233,14 @@
       // iconSize: [45, 45]
     });
     <?php foreach($sekolah as $sek) : ?>
-    <?php  if($sek['jenjang'] == 'SD/MI Sederajat') ?>
+    <?php  if($sek['jenjang'] == 'SD/MI Sederajat') : ?>
     L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: sd}).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
     <?php endif; ?>
-    <?php  if($sek['jenjang'] == 'SMP Sederajat') ?>
+    <?php  if($sek['jenjang'] == 'SMP Sederajat') : ?>
     L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: sltp}).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
     <?php endif; ?>
-    <?php  if($sek['jenjang'] == 'SMA Sederajat') ?>
-    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: markerBlue}).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
+    <?php  if($sek['jenjang'] == 'SMA Sederajat') : ?>
+    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>]).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
     <?php endif; ?>
     +'<table class="table table-bordered">'
         +'<tr>'
