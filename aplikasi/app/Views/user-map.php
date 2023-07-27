@@ -260,9 +260,9 @@
             +'<td><?= $sek['akreditasi'] ?></td>'
         +'</tr>'
     +'</table>'
-    +'<p class="fw-bold my-0">Terdekat 1</p>'
+    +'<p class="fw-bold my-0">Tetangga 1</p>'
     +'<p class="my-0"><?= $sek['average1'] ?></p>'
-    +'<p class="fw-bold my-0">Terdekat 2</p>'
+    +'<p class="fw-bold my-0">Tetangga 2</p>'
     +'<p class="my-0"><?= $sek['average2'] ?></p>'
       +'<button type="button" class="btn btn-primary p-1 btn-sm w-100" onclick="return kesini(<?= $sek['koord_x'] ?>,<?= $sek['koord_y'] ?>)"><i class="fas fa-reply"></i> Ke sini</button>');
     <?php endforeach; ?>
