@@ -23,9 +23,9 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
 
     <style>
-    .leaflet-routing-alt{
+    /* .leaflet-routing-alt{
       display: none;
-    }
+    } */
     .leaflet-routing-add-waypoint{
       display: none;
     }
