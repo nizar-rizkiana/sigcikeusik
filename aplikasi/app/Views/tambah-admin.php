@@ -135,11 +135,13 @@
                                     <td><?= ($adm['level'] == 1 ) ? 'Admin' : 'Kepala Dinas' ?></td>
                                     <td><?= $adm['username'] ?></td>
                                     <td>
+                                    <?php if(session()->get('level') == 1) : ?>
                                         <button type="button" class="btn btn-warning me-4" data-bs-toggle="modal" data-bs-target="#modalEdit<?= $adm['id_admin'] ?>"><i class="fas fa-edit"></i></button>
                                         <form action="<?= base_url() ?>/auth/delete/<?= $adm['id_admin']; ?>" method="post" class="d-inline">
                                             <input type="hidden" name="_method" value="DELETE">
                                             <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin?');"><i class="fas fa-trash-alt"></i></button>
                                         </form>
+                                        <?php endif; ?>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
