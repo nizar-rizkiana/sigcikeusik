@@ -91,8 +91,9 @@
         <div class="section-header">
             <h1>Data Admin</h1>
         </div>
+        <?php if(session()->get('level') == 1) : ?>
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalInput"><i class="fas fa-plus-square"></i>&nbsp;Tambah Admin</button>
-        
+        <?php endif ?>
         <br>
         <br>
         <?php if(session()->getFlashdata('sukses')) : ?>

@@ -7,10 +7,14 @@ var evakuasiIcon = L.icon({
     iconUrl: '/assets/marker/evakuasi.png',
     iconSize: [30, 45], // size of the icon
     });
-// var mylocation = L.icon({
-//   iconUrl: '<?= base_url() ?>/assets/marker/user.png',
-//   iconSize: [45, 45]
-// });
+var sd = L.icon({
+  iconUrl: '<?= base_url() ?>/assets/marker/marker-red.png',
+  iconSize: [45, 45]
+});
+var sltp = L.icon({
+  iconUrl: '<?= base_url() ?>/assets/marker/marker-green.png',
+  iconSize: [45, 45]
+});
 
 var popup = L.popup();
 

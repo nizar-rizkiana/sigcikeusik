@@ -69,10 +69,10 @@
       cursor: pointer;
       background-color: rgba(0, 0, 0, 0.05);
     }
-    .leaflet-routing-container.leaflet-bar.leaflet-control
+    /* .leaflet-routing-container.leaflet-bar.leaflet-control
     {
       display: none;
-    }
+    } */
     @media screen and (max-width: 576px){
     #map-user{
     height: 95vh;
@@ -216,6 +216,14 @@
     <script src="<?= base_url() ?>/bootstrap/js/bootstrap.min.js"></script>
     <script src="<?= base_url() ?>/assets/js/user-script-map.js"></script>
     <script>
+      var sd = L.icon({
+        iconUrl: '<?= base_url() ?>/assets/marker/marker-red.png',
+        iconSize: [45, 45]
+      });
+      var sltp = L.icon({
+        iconUrl: '<?= base_url() ?>/assets/marker/marker-green.png',
+        iconSize: [45, 45]
+      });
     var mylocation = L.icon({
       iconUrl: '<?= base_url() ?>/assets/marker/user.png',
       iconSize: [45, 45]
@@ -225,7 +233,15 @@
       // iconSize: [45, 45]
     });
     <?php foreach($sekolah as $sek) : ?>
-    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>]).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
+    <?php  if($sek['jenjang'] == 'SD/MI Sederajat') ?>
+    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: sd}).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
+    <?php endif; ?>
+    <?php  if($sek['jenjang'] == 'SMP Sederajat') ?>
+    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: sltp}).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
+    <?php endif; ?>
+    <?php  if($sek['jenjang'] == 'SMA Sederajat') ?>
+    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: markerBlue}).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
+    <?php endif; ?>
     +'<table class="table table-bordered">'
         +'<tr>'
             +'<td>Email</td>'
@@ -244,9 +260,9 @@
             +'<td><?= $sek['akreditasi'] ?></td>'
         +'</tr>'
     +'</table>'
-    +'<p class="fw-bold my-0">Average 1</p>'
+    +'<p class="fw-bold my-0">Terdekat 1</p>'
     +'<p class="my-0"><?= $sek['average1'] ?></p>'
-    +'<p class="fw-bold my-0">Average 2</p>'
+    +'<p class="fw-bold my-0">Terdekat 2</p>'
     +'<p class="my-0"><?= $sek['average2'] ?></p>'
       +'<button type="button" class="btn btn-primary p-1 btn-sm w-100" onclick="return kesini(<?= $sek['koord_x'] ?>,<?= $sek['koord_y'] ?>)"><i class="fas fa-reply"></i> Ke sini</button>');
     <?php endforeach; ?>
