@@ -167,7 +167,7 @@
                       <?php foreach($sekolah as $sek) : ?>
                         <?php if($sek['id_desa'] == $d['id_desa']) : ?>
                         <div class="list-data p-2 mb-2" data-bs-dismiss="offcanvas" aria-label="Close" onclick="zoomTo(<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>)">
-                          <i class="fas fa-map-marker-alt" style="font-size: 16px"></i>&nbsp;<?= $sek['nama_sekolah'] ?>
+                          <i class="fas fa-map-marker-alt <?= ($sek['jenjang'] == 'SD/MI Sederajat') ? 'text-danger' : '' ?> <?= ($sek['jenjang'] == 'SMP Sederajat') ? 'text-success' : '' ?> <?= ($sek['jenjang'] == 'SMA Sederajat') ? 'text-primary' : '' ?>" style="font-size: 16px"></i>&nbsp;<?= $sek['nama_sekolah'] ?>
                         </div>
                         <?php endif; ?>
                       <?php endforeach; ?>
@@ -193,7 +193,7 @@
                       <?php foreach($sekolah as $sek) : ?>
                         <?php if($sek['id_jenjang'] == $j['id_jenjang']) : ?>
                         <div class="list-data p-2 mb-2" data-bs-dismiss="offcanvas" aria-label="Close" onclick="zoomTo(<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>)">
-                          <i class="fas fa-map-marker-alt" style="font-size: 16px"></i>&nbsp;<?= $sek['nama_sekolah'] ?>
+                          <i class="fas fa-map-marker-alt <?= ($sek['jenjang'] == 'SD/MI Sederajat') ? 'text-danger' : '' ?> <?= ($sek['jenjang'] == 'SMP Sederajat') ? 'text-success' : '' ?> <?= ($sek['jenjang'] == 'SMA Sederajat') ? 'text-primary' : '' ?>" style="font-size: 16px"></i>&nbsp;<?= $sek['nama_sekolah'] ?>
                         </div>
                         <?php endif; ?>
                       <?php endforeach; ?>
