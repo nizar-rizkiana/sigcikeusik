@@ -115,7 +115,7 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
               <div class="accordion-body">
-                <p style="text-align: justify">Sistem Informasi Geografis yang berfungsi untuk mencari dan menentukan jalur tercepat ke suatu tempat, sistem akan menampilkan beberapa jalur menuju ke tempat tujuan kemudian akan mencari best route atau rute terbaik dan tercepat ditandai dengan jalur berwarna hijau</p>
+                <p style="text-align: justify">Sistem Informasi Geografis (SIG) merupakan sistem yang cukup menarik karna memudahkan para pengguna untuk mengakses rute yang mereka inginkan, SIG ini juga menampilkan fitur-fitur yang tersedia misalnya persebaran sekolah, rute perjalanan, detail sekolah, informasi tetangga sekolah terdekat, mutu pendidikan tingkat akreditasi dan data sekolah di kecamatan cikeusik</p>
 
               </div>
             </div>
