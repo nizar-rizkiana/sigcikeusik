@@ -69,7 +69,11 @@ class Sekolah extends BaseController
             return redirect()->to('/tambah-sekolah')->withInput();
         }
 
+        $file = $this->request->getFile('gambar');
+        $namaFile = $file->getRandomName();
+        $file->move('gambar', $namaFile);
         $this->sekolahModel->save([
+            'gambar' => $namaFile,
             'nama_sekolah' => $this->request->getVar('nama_sekolah'),
             'id_jenjang' => $this->request->getVar('jenjang'),
             'id_desa' => $this->request->getVar('desa'),

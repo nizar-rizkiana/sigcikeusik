@@ -234,13 +234,16 @@
     });
     <?php foreach($sekolah as $sek) : ?>
     <?php  if($sek['jenjang'] == 'SD/MI Sederajat') : ?>
-    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: sd}).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
+    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: sd}).addTo(map).bindPopup('<img src="<?= base_url() ?>/gambar/<?= $sek['gambar'] ?>" width="100%"></img>'
+    +'<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
     <?php endif; ?>
     <?php  if($sek['jenjang'] == 'SMP Sederajat') : ?>
-    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: sltp}).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
+    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>], {icon: sltp}).addTo(map).bindPopup('<img src="<?= base_url() ?>/gambar/<?= $sek['gambar'] ?>" width="100%"></img>'
+    +'<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
     <?php endif; ?>
     <?php  if($sek['jenjang'] == 'SMA Sederajat') : ?>
-    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>]).addTo(map).bindPopup('<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
+    L.marker([<?= $sek['koord_x'] ?>, <?= $sek['koord_y'] ?>]).addTo(map).bindPopup('<img src="<?= base_url() ?>/gambar/<?= $sek['gambar'] ?>" width="100%"></img>'
+    +'<p class="text-center fw-bold p-0 m-0"><?= $sek['nama_sekolah'] ?></p>'
     <?php endif; ?>
     +'<table class="table table-bordered">'
         +'<tr>'

@@ -27,6 +27,11 @@
                         <div class="col-12 col-md-4">
                             <form action="<?= base_url() ?>/sekolah/save" method="POST" enctype="multipart/form-data">
                                 <?= csrf_field() ?>
+                                <label for="gambar" class="form-label">Foto Sekolah</label>
+                                <input type="file" name="gambar" class="form-control mb-2" required>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('gambar') ?>
+                                </div>
                                 <label for="nama_sekolah" class="form-label">Nama Sekolah</label>
                                 <input type="text" name="nama_sekolah" class="form-control mb-2 <?= ($validation->hasError('nama_sekolah')) ? 'is-invalid' : '' ?>" placeholder="Nama Sekolah" value="<?= old('nama_sekolah') ?>" required>
                                 <div class="invalid-feedback">
