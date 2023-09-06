@@ -112,7 +112,20 @@ class Sekolah extends BaseController
             session()->setFlashdata('gagal', 'Data gagal diupdate');
             return redirect()->to('/sekolah/edit/'.$id)->withInput();
         }
+
+        //ambil gambar
+        $fileFoto = $this->request->getFile('gambar');
+        if($fileFoto->getError() == 4)
+        {
+            $namaFoto = $this->request->getVar('gambarLama');
+        }else{
+            // generate nama random
+            $namaFoto = $fileFoto->getRandomName();
+            // pindahkan lokasi foto
+            $fileFoto->move('gambar', $namaFoto);
+        }
         $this->sekolahModel->update($id, [
+            'gambar' => $namaFoto,
             'nama_sekolah' => $this->request->getVar('nama_sekolah'),
             'id_jenjang' => $this->request->getVar('jenjang'),
             'id_desa' => $this->request->getVar('desa'),

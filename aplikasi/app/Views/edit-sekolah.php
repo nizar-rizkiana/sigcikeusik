@@ -28,6 +28,12 @@
                             <form action="<?= base_url() ?>/sekolah/update/<?= $sekolah['id_sekolah'] ?>" method="POST" enctype="multipart/form-data">
                                 <?= csrf_field() ?>
                                 <input type="hidden" name="datalama" value="<?= $sekolah['nama_sekolah'] ?>">
+                                <input type="hidden" name="gambarlama" value="<?= $sekolah['gambar'] ?>">
+                                <label for="gambar" class="form-label">Foto Sekolah</label>
+                                <input type="file" name="gambar" class="form-control mb-2">
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('gambar') ?>
+                                </div>
                                 <label for="nama_sekolah" class="form-label">Nama Sekolah</label>
                                 <input type="text" name="nama_sekolah" class="form-control mb-2 <?= ($validation->hasError('nama_sekolah')) ? 'is-invalid' : '' ?>" placeholder="Nama Sekolah" value="<?= old('nama_sekolah', $sekolah['nama_sekolah']) ?>" required>
                                 <div class="invalid-feedback">
